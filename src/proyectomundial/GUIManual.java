@@ -48,6 +48,9 @@ public class GUIManual extends JFrame {
     private JPanel jPanelMenuHome;
     private JLabel btnHome;
     
+    private JPanel jPanelInicioSeccion;
+    private JLabel btnInicio;
+    
     private JPanel jPanelMenuSelecciones;
     private JLabel btnSelecciones;
     
@@ -100,6 +103,9 @@ public class GUIManual extends JFrame {
         jPanelMenuHome = new JPanel();
         btnHome = new JLabel();
         
+        jPanelInicioSeccion = new JPanel();
+        btnInicio = new JLabel();
+        
         jPanelMenuSelecciones = new JPanel();
         btnSelecciones = new JLabel();
         
@@ -133,7 +139,8 @@ public class GUIManual extends JFrame {
         // Pinta y ajuste diseño del contenedor del panel izquierdo
         pintarPanelIzquierdo();
         
-        
+        // Pinta la opción de Menú del inicio de Seccion
+        pintarInicio();
         
         // Inicializa los componentes del panel derecho de los contenidos
         jPanelRight = new JPanel();
@@ -395,13 +402,31 @@ public class GUIManual extends JFrame {
         btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 System.out.println("Inicio Seccion");
-                accionHome();
+                IniciarSeccion();
             }
         });   
     }
     
     private void IniciarSeccion() {
+        jLabelTop.setText("Inicio Seccion");
         
+        jPanelMain.removeAll();
+        JPanel homePanel = new JPanel();
+        JLabel imageHome = new JLabel();
+
+        imageHome.setIcon(new ImageIcon(getClass().getResource("/resources/home.jpg"))); // NOI18N
+        //imageHome.setPreferredSize(new java.awt.Dimension(810, 465));
+        homePanel.add(imageHome);
+
+        jPanelMain.add(homePanel, BorderLayout.CENTER);
+        jPanelMain.repaint();
+        jPanelMain.revalidate();
+        
+        JOptionPane.showMessageDialog(null, "Digita el usario","Inicio Seccion",JOptionPane.PLAIN_MESSAGE);
+        String Registro = JOptionPane.showInputDialog("","Usuario");
+        
+        JOptionPane.showMessageDialog(null, "Digita la contraseña","Inicio Seccion",JOptionPane.PLAIN_MESSAGE);
+        String Contraseña = JOptionPane.showInputDialog("","Contraseña");
     }
     
     /**
