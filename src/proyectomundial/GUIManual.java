@@ -22,14 +22,16 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import proyectomundial.DAO.IniciarDAO;
 import proyectomundial.DAO.SeleccionDAO;
 import proyectomundial.model.Seleccion;
 
 public class GUIManual extends JFrame {
 
     SeleccionDAO seleccionDAO = new SeleccionDAO();
+    IniciarDAO iniciarDAO = new IniciarDAO();
     
-    
+    public boolean[][] Inicio = null;
     // Matrix que permite almancenar la información de las selecciones futbol cargadas
     public String[][] selecciones = null;
     
@@ -424,9 +426,16 @@ public class GUIManual extends JFrame {
         
         JOptionPane.showMessageDialog(null, "Digita el usario","Inicio Seccion",JOptionPane.PLAIN_MESSAGE);
         String Registro = JOptionPane.showInputDialog("","Usuario");
-        
+
         JOptionPane.showMessageDialog(null, "Digita la contraseña","Inicio Seccion",JOptionPane.PLAIN_MESSAGE);
         String Contraseña = JOptionPane.showInputDialog("","Contraseña");
+        
+        if (Registro == "pepito" && Contraseña == "BuenaSuerte") {
+            haySesion = true;
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Debes registrarte primero");
+        }
     }
     
     /**

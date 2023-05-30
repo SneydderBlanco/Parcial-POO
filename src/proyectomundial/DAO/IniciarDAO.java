@@ -12,13 +12,15 @@ public class IniciarDAO {
         BasedeDatos.conectar();
     }
     
-    public boolean registrarInicio(String User, String Password) {
+    public boolean TomarUsarios(String User, String Password) {
         
-        String sql = "Select * from poo.users where username = usarname and password = password";
+        String sql = "Select * from poo.users where username = '"+User+"' and password = '"+Password+"'";
         
         //BasedeDatos.conectar();
         boolean registro = BasedeDatos.ejecutarActualizacionSQL(sql);
         //BasedeDatos.desconectar();
         return registro;
     }
+    
+    
 }
