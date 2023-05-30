@@ -424,17 +424,19 @@ public class GUIManual extends JFrame {
         jPanelMain.repaint();
         jPanelMain.revalidate();
         
-        JOptionPane.showMessageDialog(null, "Digita el usario","Inicio Seccion",JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Digita el usuario","Inicio Seccion",JOptionPane.PLAIN_MESSAGE);
         String Registro = JOptionPane.showInputDialog("","Usuario");
 
         JOptionPane.showMessageDialog(null, "Digita la contraseña","Inicio Seccion",JOptionPane.PLAIN_MESSAGE);
         String Contraseña = JOptionPane.showInputDialog("","Contraseña");
         
-        if (Registro == "pepito" && Contraseña == "BuenaSuerte") {
-            haySesion = true;
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debes registrarte primero");
+        IniciarDAO iniciarDao = new IniciarDAO();
+        haySesion = iniciarDao.TomarUsarios(Registro, Contraseña);
+        
+        if (haySesion == true) {
+            JOptionPane.showMessageDialog(null, "Inicio de sesión correcto");
+        } else {
+            JOptionPane.showMessageDialog(null, "Datos digitados incorrectos");
         }
     }
     
