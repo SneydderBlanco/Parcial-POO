@@ -379,7 +379,30 @@ public class GUIManual extends JFrame {
             }
         });
     }
+    private void pintarInicio() {
+        btnHome.setIcon(new ImageIcon(getClass().getResource("/resources/icons/home.png"))); // NOI18N
+        btnHome.setText("Inicio Seccion");
+        btnHome.setForeground(new java.awt.Color(255, 255, 255));
+        
+        JLabel vacioHome = new JLabel();
+        jPanelMenuHome.setBackground(new java.awt.Color(17, 41, 63));
+        jPanelMenuHome.setPreferredSize((new java.awt.Dimension(220, 35)));
+        jPanelMenuHome.setLayout(new BorderLayout(15, 0));
+        jPanelMenuHome.add(vacioHome, BorderLayout.WEST);
+        jPanelMenuHome.add(btnHome, BorderLayout.CENTER);
+        jPanelMenu.add(jPanelMenuHome);
+        
+        btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                System.out.println("Inicio Seccion");
+                accionHome();
+            }
+        });   
+    }
     
+    private void IniciarSeccion() {
+        
+    }
     
     /**
      * TRABAJO DEL ESTUDIANTE
